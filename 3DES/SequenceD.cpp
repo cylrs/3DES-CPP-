@@ -9,6 +9,8 @@
 #include <vector>
 #include "Sequence.cpp"
 using namespace std;
+//ibrahim & Cylia LAST v : 01 06 2020
+//TOUTES LES METHODES DE CETTE CLASSE FONCTIONNENT CORRECTEMENT 
 template<class T,int maxsize>
 class SequenceD
 {
@@ -117,23 +119,38 @@ template<class T,int maxsize>
     return seqq;
 }
 
-template<class T>
- void afficheAll(T obj)
-{
-   for (int i =1; i <= obj.size(); i++) cout<<obj (i);
-}
 template<class T, int maxsize>
  void SequenceD<T, maxsize>::pop(){
      seqq.pop();
  }
 
-template<class T>
-int permut(T, vector<int> v){
 
-    
-    return 0;
+
+
+void write(SequenceD<Sequence,64> s,std::ostream& outStr){
+    Sequence left = s.left();
+    Sequence right = s.right();
+    string txt = left.afficheT() + right.afficheT();
+    outStr.write((txt).c_str(),s.size());
+
 }
 
+template<class T>
+ void afficheAll(T obj)
+{
+   for (int i =1; i <= obj.size(); i++) cout<<obj (i);
+}
+
+void read(SequenceD<Sequence,64> s,std::istream& inStr){
+    cout<<"inter the sequence of bits one by one";
+    //Nous lisons un int mais on cosidere qu'il s'agit d'un char pour la foction qui suit
+    char mysequence[64];
+    inStr.read(mysequence,s.size());
+    list<int> tabtolist;
+    for(int i = 0; i<64;i++) tabtolist.push_front(mysequence[i]);
+    s.set(Sequence(tabtolist)); 
+
+}
 
 /*
 int main()

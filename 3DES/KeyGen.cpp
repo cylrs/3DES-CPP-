@@ -12,6 +12,10 @@
 #include "SequenceD.cpp"
 #include "Permutation.cpp"
 using namespace std;
+
+//ibrahim & Cylia LAST v : 01 06 2020
+//TOUTES LES METHODES DE CETTE CLASSE FONCTIONNENT CORRECTEMENT 
+
  int static nbKey = 0;
 class KeyGen
 {
@@ -59,34 +63,19 @@ SequenceD<Sequence, 48> KeyGen::next(){
     right.decalage(1);
     SequenceD<Sequence,48> res(left,right);
     nbKey++;
-    return res;
-    /*
-    SequenceD<Sequence, 48> sousP;
-    SequenceD<Sequence,64> sousK;
-    underK = 4;
-    vector<int> vec;
-    for (int i = 0; i <56; i++) vec.push_back(i);
-    random_shuffle (vec.begin(), vec.end());
-    Permutation<SequenceD<Sequence, 64>,64,64> permu;
-    underP = Sequence(permu(Key,vec).get());
-    if(nbKey<16){
-        Sequence l = underP.left();
-        Sequence r = underP.right();
-        l.decalage(1);
-        r.decalage(1);
-        l.pop();
-        r.pop();
-        SequenceD<Sequence,64> u(r,l);
-        underK.set(u.get());
-        nbKey++;
-    }
-    else cout<<"16 Rounds dépassés";
-    return underK;
-    */
+    return res;  
 }
 
 
 KeyGen::~KeyGen(){}
 
+int main (){
+ cout<<"hhh";
+ SequenceD<Sequence, 64> c;
+ c=40;
+ KeyGen k(c);
+ 
+
+}
 
 

@@ -7,6 +7,10 @@
 #include <vector>
 #include "Sequence.cpp"
 
+
+//ibrahim & Cylia LAST v : 01 06 2020
+//TOUTES LES METHODES DE CETTE CLASSE FONCTIONNENT CORRECTEMENT 
+
 class Sbox
 {
 private:

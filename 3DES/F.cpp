@@ -12,11 +12,13 @@
 #include "SequenceD.cpp"
 #include "Permutation.cpp"
 #include "KeyGen.cpp"
+#include "S_function.cpp"
 
 class F{
     
 private:
     KeyGen cle;
+    S_function boxes;
 
 public:
     F(SequenceD<Sequence,64>);
@@ -25,7 +27,7 @@ public:
 
 F::F(SequenceD<Sequence,64> k)
 {
-    cle = KeyGen(k);
+   cle = KeyGen(k); 
 }
 
 F::~F()

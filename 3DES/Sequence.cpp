@@ -8,6 +8,9 @@
 #include <vector>
 #include <experimental/random>
 
+//ibrahim & Cylia LAST v : 01 06 2020
+//TOUTES LES METHODES DE CETTE CLASSE FONCTIONNENT CORRECTEMENT 
+
 using namespace std;
 class Sequence
 {
@@ -26,7 +29,8 @@ public:
     void decalage(int);                 //OK
     Sequence permutation(vector<int>);  //OK
     Sequence sous_sequence(int, int);   //OK  
-    void affiche();                     //OK
+    void affiche(); 
+    string afficheT();                    //OK
     list<int> toList();                 //OK
     void pop();
     void popSeq();
@@ -124,6 +128,17 @@ void Sequence::popSeq(){
 }
 void Sequence::push(){
     seq.push_front(0);
+}
+string Sequence::afficheT(){
+
+    string txt ;
+    deque<int> s = seq;
+    while (!s.empty())
+    {
+        txt.insert(0,1,(s.front()));
+        s.pop_front();
+    }
+    return txt;
 }
 Sequence::~Sequence(){}
 
