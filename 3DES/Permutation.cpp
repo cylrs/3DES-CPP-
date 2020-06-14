@@ -11,57 +11,57 @@
 using namespace std;
 
 
-//ibrahim & Cylia LAST v : 01 06 2020
+//Ibrahim & Cylia LAST v : 14 06 2020
 //TOUTES LES METHODES DE CETTE CLASSE FONCTIONNENT CORRECTEMENT 
 
-template<class T,int tailleE,int tailleS>
+template<int tailleEntree,int tailleSortie>
 class Permutation{
-    int i;
-    SequenceD<Sequence,64> p;
+
 public: 
     Permutation();
-    T operator()(SequenceD<Sequence,tailleE>,vector<int>); 
+    SequenceD<tailleSortie> operator()(SequenceD<tailleEntree>,vector<int>); 
 }; 
-template<class T, int tailleE, int tailleS>
- Permutation<T, tailleE, tailleS>::Permutation(){
-     i=0;
- }
 
-template<class T, int tailleE, int tailleS>
- T Permutation<T, tailleE, tailleS>::operator()(SequenceD<Sequence,tailleE> s, vector<int> v){
-    int tailleV = v.size();
+template<int tailleEntree, int tailleSortie>
+ Permutation<tailleEntree, tailleSortie>::Permutation(){
+ }
+//OPERATOR QUI PERMET DE CHANGER LA TAILLE ET LE POSITIONEMENT DES VALEUR
+template<int tailleEntree, int tailleSortie>
+ SequenceD<tailleSortie> Permutation<tailleEntree, tailleSortie>::operator()(SequenceD<tailleEntree> s, vector<int> v){
     int valV,valS; 
     list<int> li; 
-    for (int i = 0; i < tailleV; i++){
+    for (int i = 0; i < tailleSortie; i++){
         valV = v[i];
+        // LES VALEURS DANS LE VECTEUR SONT DECALEES DE 1 
         valV= valV-1;
-        valS =s[valV];
-        if (valS>1)valS=0;        
+        valS =s[valV];        
         li.push_back(valS);
     }
+    //INSERTION DES DONNEES DANS UNE LISTE POUR CRRER LA SEQUENCE
     Sequence trans = Sequence(li);
-    SequenceD<Sequence,tailleS> res(trans);
-    res.affiche();
-    p=res;
+    auto res = SequenceD<tailleSortie> (trans);
     return res;
 }
 /*
 int main(){
-    
-    SequenceD<Sequence,100> res;
-    res = 9;
-    res.affiche();
-    vector<int> v = {3,2,1,4};
-    Permutation<SequenceD<Sequence,100>,100,100> tes;
-    tes(res,v);
-    return 0;
+	SequenceD<6> seqEntree = SequenceD<6>();
+	SequenceD<4> seqSortie = SequenceD<4>();
+	vector<int> v{1,2,3,4};
+	Permutation<6,4> p;
+	cout << "Affichage SequenceD<6> :" << '\n';
+	seqEntree.affiche();
+	cout << "permutation vers SequenceD<4> :" << '\n';
+    seqSortie = p(seqEntree, v);
+	seqSortie.affiche();
+   
 }*/
 
-    /* EN SUIVANT CETTE AFFICHAGE NOUS AURONS LE RESULAT SUIVANT :
-    source : 
-    {1  0  0  1  }
-    Resultat : dont le vecteur de la permutaiton est : v = {3,2,1,4}
-    {0  0  1  1  }
+    /*
+    Affichage SequenceD<6> :
+    {1  1  1  } {0  0  0  }
+    permutation vers SequenceD<4> :
+    {0  0  } {0  1  }
+
     */
     
     
