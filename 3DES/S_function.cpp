@@ -4,31 +4,34 @@
 class S_function
 {
 private:
-    int*** Sboxes;
+    int ***Sboxes;
+
 public:
     S_function(int ***);
     S_function();
-    S_function(S_function&);
-    S_function& operator=(S_function&);
+    S_function(S_function &);
+    S_function &operator=(S_function &);
     Sequence operator()(Sequence);
     ~S_function();
 };
 
-S_function::S_function(int *** tabInitial){
+S_function::S_function(int ***tabInitial)
+{
     Sboxes = tabInitial;
 }
-//CONSTRUCTEUR DE RECOPIE 
-S_function::S_function(S_function & s)
+//CONSTRUCTEUR DE RECOPIE
+S_function::S_function(S_function &s)
 {
     Sboxes = s.Sboxes;
 }
 
-S_function& S_function::operator=(S_function& s) {
+S_function &S_function::operator=(S_function &s)
+{
     return s;
 }
 
-
-Sequence S_function::operator()(Sequence seq){
+Sequence S_function::operator()(Sequence seq)
+{
     Sequence res;
     return res;
 }
@@ -37,7 +40,7 @@ S_function::~S_function()
 {
     for (int i = 0; i < 8; i++)
     {
-        for (j = 0; j < 64; j++)
+        for (int j = 0; j < 64; j++)
         {
             free(Sboxes[i][j]);
         }

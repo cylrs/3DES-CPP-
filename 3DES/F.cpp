@@ -21,11 +21,11 @@ private:
     S_function boxes;
 
 public:
-    F(SequenceD<Sequence,64>);
+    F(SequenceD<64>);
     ~F();
 };
 
-F::F(SequenceD<Sequence,64> k)
+F::F(SequenceD<64> k)
 {
    cle = KeyGen(k); 
 }
